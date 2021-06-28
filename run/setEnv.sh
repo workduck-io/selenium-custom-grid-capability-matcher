@@ -9,10 +9,8 @@ seleniumServerBinary=selenium-server-standalone
 seleniumServerJar=$seleniumServerBinary-$seleniumVersion.jar
 
 capabilityMatcherJar=grid-capability-matcher-$seleniumVersion.jar
-HUB_HOST=$(echo $(ip route show | awk '/docker0/ {print $9}'))
 
 HUB_CONFIG='{
-    "host": "'"$HUB_HOST"'",
   "port": 4444,
   "newSessionWaitTimeout": 60,
   "servlets": [],
@@ -29,4 +27,4 @@ HUB_CONFIG='{
   "sessionTimeout": 90
 }'
 
-echo HUB_CONFIG>hubconfig.json
+echo $HUB_CONFIG>hubconfig.json
